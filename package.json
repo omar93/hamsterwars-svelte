@@ -1,0 +1,19 @@
+{
+  "name": "hamsterwars-svelte",
+  "version": "0.0.1",
+  "proxy": "http://localhost:3233",
+  "scripts": {
+    "server": "nodemon ./backend/server.js",
+    "dev": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "package": "svelte-kit package",
+    "preview": "svelte-kit preview"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/kit": "next",
+    "nodemon": "^2.0.15",
+    "svelte": "^3.44.0"
+  },
+  "type": "module"
+}
