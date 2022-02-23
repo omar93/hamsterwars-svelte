@@ -33,19 +33,24 @@ router.get("/random", async (req, res) => {
         res.status(404).send("No hamster found.");
         return;
     }
-    var i = 0;
-    var random = Math.floor(Math.random() * snapshot.size);
-    snapshot.forEach((doc) => {
-        if (i === random ) {
-            const data = doc.data()
-            data.id = doc.id
-            frontendData = data
-            // data.id = doc.id; // id behövs för POST+PUT+DELETE
-            res.send(data); // här får vi backend problem
-        }
-        i++;
-    });
     
+    let frontendData = []
+    for (let i = 0; i < 2; i++) {
+        let j = 0;
+        let random = Math.floor(Math.random() * snapshot.size);
+        console.log(random);
+        snapshot.forEach(doc => {
+            if (j === random ) {
+                const data = doc.data()
+                data.id = doc.id
+                frontendData.push(data)
+                // data.id = doc.id; // id behövs för POST+PUT+DELETE
+                // res.send(data); // här får vi backend problem
+            }
+            j++;
+        });
+    }
+    res.send(frontendData)
     
 
 
